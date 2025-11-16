@@ -46,7 +46,7 @@ export default function Home() {
             <CreatureCard
               key={c.id}
               creature={c}
-              onClick={() => (window.location = `/editar/${c.id}`)}
+              onClick={() => (window.location = `/editar/${c._id}`)}
             />
           ))
         )}
