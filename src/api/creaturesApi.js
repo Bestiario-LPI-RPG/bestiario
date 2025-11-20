@@ -1,6 +1,5 @@
 const API_URL = "http://localhost:3001/creature";
 
-// --- API CRUD usando backend ---
 export const api = {
   async getAll() {
     const res = await fetch(API_URL);
@@ -41,12 +40,11 @@ export const api = {
   }
 };
 
-// --- Script de migração do LocalStorage para MongoDB ---
 export async function migrateLocalStorageToAPI() {
   const items = JSON.parse(localStorage.getItem("creatures") || "[]");
   for (const c of items) {
     try {
-      await api.create(c); // envia cada criatura para o backend
+      await api.create(c);
       console.log("Migrado:", c);
     } catch (err) {
       console.error("Erro ao migrar:", c, err);
